@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://192.168.1.119:5001';
+
 const EditPostScreen = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -16,7 +18,7 @@ const EditPostScreen = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const { data } = await axios.get(`http://192.168.1.119:5001/api/posts/${id}`); // <-- UPDATED
+        const { data } = await axios.get(`${API_URL}/api/posts/${id}`); // <-- UPDATED
         if (user._id !== data.author._id) {
             navigate('/');
         }
@@ -44,7 +46,7 @@ const EditPostScreen = () => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      await axios.put(`http://192.168.1.119:5001/api/posts/${id}`, { title, content }, config); // <-- UPDATED
+      await axios.put(`${API_URL}/api/posts/${id}`, { title, content }, config); // <-- UPDATED
       navigate(`/post/${id}`);
     } catch (err) {
       setError('Failed to update post.');

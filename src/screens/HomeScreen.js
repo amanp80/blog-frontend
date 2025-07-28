@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://192.168.1.119:5001';
+
 const HomeScreen = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,7 +13,7 @@ const HomeScreen = () => {
     const fetchPosts = async () => {
       try {
         setLoading(true);
-        const { data } = await axios.get('http://192.168.1.119:5001/api/posts'); // <-- UPDATED
+        const { data } = await axios.get(`${API_URL}/api/posts`); // <-- UPDATED
         setPosts(data);
         setLoading(false);
       } catch (err) {
@@ -49,3 +51,4 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
+

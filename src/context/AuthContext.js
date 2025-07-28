@@ -2,6 +2,9 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+// This line is the key: it uses the live URL when deployed, or your local IP for development.
+const API_URL = process.env.REACT_APP_API_URL || 'http://192.168.1.119:5001';
+
 const AuthContext = createContext();
 
 export const useAuth = () => {
@@ -28,7 +31,7 @@ export const AuthProvider = ({ children }) => {
         },
       };
       const { data } = await axios.post(
-        'http://192.168.1.119:5001/api/users/login', // <-- UPDATED
+        `${API_URL}/api/users/login`, // <-- UPDATED
         { email, password },
         config
       );
@@ -53,7 +56,7 @@ export const AuthProvider = ({ children }) => {
         },
       };
       const { data } = await axios.post(
-        'http://192.168.1.119:5001/api/users/register', // <-- UPDATED
+        `${API_URL}/api/users/register`, // <-- UPDATED
         { name, email, password },
         config
       );

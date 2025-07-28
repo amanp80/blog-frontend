@@ -1,8 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+
+const API_URL = process.env.REACT_APP_API_URL || 'http://192.168.1.119:5001';
 
 const PostScreen = () => {
   const { id } = useParams();
@@ -16,7 +17,7 @@ const PostScreen = () => {
     const fetchPost = async () => {
       try {
         setLoading(true);
-        const { data } = await axios.get(`http://192.168.1.119:5001/api/posts/${id}`); // <-- UPDATED
+        const { data } = await axios.get(`${API_URL}/api/posts/${id}`); // <-- UPDATED
         setPost(data);
         setLoading(false);
       } catch (err) {
@@ -35,7 +36,7 @@ const PostScreen = () => {
                       Authorization: `Bearer ${user.token}`,
                   },
               };
-              await axios.delete(`http://192.168.1.119:5001/api/posts/${id}`, config); // <-- UPDATED
+              await axios.delete(`${API_URL}/api/posts/${id}`, config); // <-- UPDATED
               navigate('/');
           } catch (error) {
               setError('Could not delete post. You must be the author.');

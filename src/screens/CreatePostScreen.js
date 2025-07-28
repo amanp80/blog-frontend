@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://192.168.1.119:5001';
+
 const CreatePostScreen = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
@@ -19,7 +21,7 @@ const CreatePostScreen = () => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.post('http://192.168.1.119:5001/api/posts', { title, content }, config); // <-- UPDATED
+      const { data } = await axios.post(`${API_URL}/api/posts`, { title, content }, config); // <-- UPDATED
       navigate(`/post/${data._id}`);
     } catch (err) {
       setError('Failed to create post. Please fill out all fields.');
