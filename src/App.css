@@ -1,0 +1,212 @@
+:root {
+  --background-dark: #121826;
+  --surface-dark: #1A202C;
+  --text-primary: #E2E8F0;
+  --text-secondary: #94A3B8;
+  --accent: #22D3EE;
+  --accent-hover: #67E8F9;
+  --border-color: #334155;
+  --error-bg: #451a24;
+  --error-text: #f8b4b4;
+}
+
+/* 2. Global Resets & Typography */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif; /* New Body Font */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-dark);
+  color: var(--text-primary);
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Work Sans', sans-serif; /* New Heading Font */
+  color: var(--text-primary);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* 3. Main Layout */
+.container {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+
+.header {
+  background-color: transparent;
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+}
+
+.header h1 a {
+  font-size: 1.75rem;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.header-nav a, .header-nav button {
+  color: var(--text-secondary);
+  text-decoration: none;
+  margin: 0 1rem;
+  transition: color 0.2s ease-in-out;
+  font-size: 1rem;
+}
+
+.header-nav a:hover, .header-nav button:hover {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.header-nav button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.footer {
+  text-align: center;
+  padding: 3rem;
+  margin-top: 4rem;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-color);
+}
+
+/* 4. Blog Post Cards */
+.post-card {
+  background: var(--surface-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.post-card h2 a {
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.post-content {
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* 5. Form Styling */
+.form-container {
+  background: var(--surface-dark);
+  padding: 2.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--background-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.2);
+}
+
+/* 6. Buttons & Utility */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--background-dark);
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  padding: 0.75rem 1.75rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-top: 1rem;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: var(--background-dark);
+}
+
+.btn-delete {
+  background: #B91C1C;
+  color: var(--text-primary);
+  margin-left: 1rem;
+}
+.btn-delete:hover {
+  background: #991B1B;
+  color: var(--text-primary);
+}
+
+.error-message {
+  color: var(--error-text);
+  background: var(--error-bg);
+  border: 1px solid #7f1d1d;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+}
+
+.loading-spinner {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 4rem;
+  color: var(--text-secondary);
+}
