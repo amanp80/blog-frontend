@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header className="header">
       <h1>
-        <Link to="/">MERN Blog</Link>
+        <Link to="/">EchoVerse</Link>
       </h1>
       <nav className="header-nav">
         {user ? (

@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# EchoVerse: A Full-Stack MERN Content Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Live Demo:** [https://blog-frontend-xi-coral.vercel.app/] -->
 
-## Available Scripts
+![EchoVerse Screenshot](./echoverse-screenshot.png)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## About The Project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+EchoVerse is a dynamic, full-stack content management system built from the ground up using the MERN stack. As my first major portfolio project, it demonstrates a comprehensive understanding of modern web development, from backend API design and database management to frontend state handling and user interface design.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The application provides a secure and intuitive platform for users to register, create, and manage their own blog posts, showcasing a complete CRUD (Create, Read, Update, Delete) workflow with robust user authentication.
 
-### `npm test`
+### Key Features:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* **Secure User Authentication:** Implemented using JSON Web Tokens (JWT) for secure session management, with password hashing via `bcrypt.js` to protect user data.
+* **Full CRUD Functionality:** Users have complete control over their content, with the ability to create, view, edit, and delete their own posts.
+* **RESTful API:** A well-structured backend API built with Node.js and Express, handling all data logic and serving content to the frontend.
+* **Modern Frontend:** A responsive and visually appealing single-page application (SPA) built with React, featuring a minimalist dark-mode theme, custom fonts, and a focus on user experience.
+* **Cloud Deployment:** The application is fully deployed and live, with the backend hosted on Render and the frontend on Vercel, demonstrating a complete CI/CD pipeline.
 
-### `npm run build`
+### Tech Stack:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* **Frontend:** React, React Router, Axios
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB (with Mongoose)
+* **Authentication:** JSON Web Tokens (JWT), bcrypt.js
+* **Deployment:** Vercel (Frontend), Render (Backend)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## A Key Learning Experience: Solving a Deep-Rooted CORS Issue
 
-### `npm run eject`
+During development, I encountered a persistent CORS (Cross-Origin Resource Sharing) error that blocked communication between the frontend and backend, even with a standard `cors()` middleware implementation.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+My debugging process was systematic:
+1.  I first implemented a more explicit CORS configuration, specifying allowed origins.
+2.  When that failed, I used console logs to confirm the server was correctly restarting with the new code.
+3.  Finally, after proving the code was correct, I diagnosed the issue as an environmental problem on my local machine—a port conflict with macOS's AirPlay service on port 5000.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+By moving the backend server to a new port (`5001`) and updating all frontend API endpoints, I successfully resolved the issue. This experience taught me a valuable lesson in debugging problems that extend beyond the code itself and into the deployment and network environment.
